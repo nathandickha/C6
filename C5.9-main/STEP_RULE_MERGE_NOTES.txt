@@ -1,0 +1,25 @@
+Step / Bench Seat Rule Merge
+============================
+
+This joint build uses the C5.6 project as the base because it already contains the combined rule structure in frontend/js/pool/pool.js.
+
+Active behaviour:
+1. Bench Seat mode + side steps + curved local bench/wall end:
+   - Small side steps are inset 300 mm from the relevant bench seat end.
+   - This matches the C5.5 curved-wall behaviour.
+
+2. Bench Seat mode + side steps + straight local bench/wall end:
+   - Small side steps sit flush on the bench/step edge with no 300 mm offset.
+   - This matches the C5.6 straight-wall behaviour.
+
+3. The decision is local to the selected side/end, so a pool with one curved end and one straight end can apply different rules on each side.
+
+Main implementation points in frontend/js/pool/pool.js:
+- STEP_TIER_OFFSET = 0.3
+- hasCurvedLocalBenchEnd(...)
+- getPhysicalStepSide(...)
+- applyCurvedSideAnchorToLayout(...)
+- curvedSideAnchor logic inside PoolBuilder.build(...)
+
+Validation performed:
+- JavaScript syntax check passed for all frontend/js files using node --check.
