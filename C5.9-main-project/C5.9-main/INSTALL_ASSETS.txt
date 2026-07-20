@@ -1,8 +1,0 @@
-INSTALLATION
-
-1. Extract C5.9-main-project.zip.
-2. Extract C5.9-main-assets.zip into the same parent folder.
-3. Allow the folders to merge.
-
-The final HDR path must be:
-C5.9-main/frontend/assets/environment/kloofendal_48d_partly_cloudy_puresky_16k.hdr
